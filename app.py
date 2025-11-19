@@ -12,5 +12,5 @@ def movie_list():
     contacts = my_select()                 
     return render_template("movie.html", contacts=contacts)
 
-if __name__ == "__main__":
-    app.run(debug=True)
+if __name__ == '__main__':
+    app.run(host='0.0.0.0',port=80, debug=True)
