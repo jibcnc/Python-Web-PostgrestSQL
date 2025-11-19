@@ -1,19 +1,26 @@
 import psycopg2
 
-def select():
+def my_select():
     conn = None
     cur = None
     rows = []
 
     try:
         conn = psycopg2.connect(
-            host="localhost",
-            database="ct526",
-            user="postgres",
-            password="password"
+            host="127.0.0.1",
+            port=5432,
+            dbname="ct526",
+            user="test",          
+            password="password"   
         )
+
         cur = conn.cursor()
-        cur.execute("SELECT * FROM movie;")
+        cur.execute("""
+            SELECT mid, m_name, release_date, genre, country
+            FROM movie
+            ORDER BY mid;
+        """)
+
         rows = cur.fetchall()
 
     except Exception as e:
