@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Show data in DB</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #9ad6ff, #f5fbff);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border-radius: 16px;
+      padding: 24px 32px 32px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .gallery img {
+      width: 220px;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    thead {
+      background-color: #007bff;
+      color: #ffffff;
+    }
+
+    th, td {
+      padding: 10px 8px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #f7f9fc;
+    }
+
+    tbody tr:hover {
+      background-color: #e8f2ff;
+    }
+
+    .back-btn {
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    .back-btn a {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      background-color: #007bff;
+      color: #ffffff;
+      font-weight: bold;
+      transition: transform 0.15s ease, box-shadow 0.15s ease,
+        background-color 0.15s ease;
+    }
+
+    .back-btn a:hover {
+      background-color: #0056b3;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <div class="title">Movie List</div>
+
+    <div class="gallery">
+      <img src="static/1.gump.png" alt="Forrest Gump" />
+      <img src="static/2.shutter.png" alt="Shutter Island" />
+      <img src="static/3.green.png" alt="The Green Mile" />
+      <img src="static/4.ryan.png" alt="Saving Private Ryan" />
+      <img src="static/5.catchme.png" alt="Catch Me If You Can" />
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>MID</th>
+          <th>Movie Name</th>
+          <th>Release Date</th>
+          <th>Genre</th>
+          <th>Country</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in contacts %}
+        <tr>
+          {% for col in row %}
+          <td>{{ col }}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <div class="back-btn">
+      <a href="/">Back To Home Page</a>
+    </div>
+  </div>
+</body>
+</html>
