@@ -6,7 +6,7 @@ def select():
         host="localhost",  # Or your PostgreSQL server's IP address
         database="ct526",
         user="test",
-        password="p@ssw0rd"
+        password="password"
     )
     # Create a cursor object to execute SQL commands
     cur = conn.cursor()
